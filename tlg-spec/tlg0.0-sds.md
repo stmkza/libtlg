@@ -7,7 +7,7 @@
     (u8)        #1a
 
 中身のサイズ [4bytes]
-    (i32LE)     Raw data size
+    (u32LE)     Raw data size
 
 画像本体 [(Raw data size) bytes]
 
@@ -16,7 +16,7 @@
         チャンク名 [4bytes]
             (char*4)    Chunk name
         チャンクサイズ [4bytes]
-            (i32LE)     Chunk size
+            (u32LE)     Chunk size
         チャンク本体 [(Chunk size) bytes]
     [...チャンクエントリの繰り返し...]
 ```
