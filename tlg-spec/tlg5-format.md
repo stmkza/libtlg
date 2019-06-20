@@ -13,4 +13,5 @@
                     #04 : 32bit
     (i32LE)     Width
     (i32LE)     Height
+    (i32LE)     Block height (圧縮するときの縦方向の分割単位)
 ```
