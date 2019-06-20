@@ -28,4 +28,5 @@
                         #00 : Compressed
                         #01 : Not compressed
         (i32LE)     Block content size
+        ブロック本体 [(Block content size) bytes]
 ```
