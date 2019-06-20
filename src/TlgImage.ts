@@ -36,5 +36,6 @@ export class TlgImage {
             // ToDo: もっときれいな型のチェックにする
             throw new Error('Unsupported color depth.');
         }
+        this.colorDepth = colorDepth;
     }
 }
