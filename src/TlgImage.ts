@@ -1,7 +1,7 @@
 import { parse } from "path";
 import './DataViewEx';
 
-type TlgVersion = 'TLG5.0' | 'TLG6.0';
+export type TlgVersion = 'TLG5.0' | 'TLG6.0';
 
 export class TlgImage {
     protected image: ArrayBuffer;
