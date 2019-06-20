@@ -18,7 +18,7 @@ window.addEventListener('load', () => {
             if(!(fileReader.result instanceof ArrayBuffer)) return;
 
             const image = new TlgSds(fileReader.result);
-            output.textContent = image.toString();
+            output.textContent = JSON.stringify(image, null, 4);
         });
         fileReader.readAsArrayBuffer(file);
     });
