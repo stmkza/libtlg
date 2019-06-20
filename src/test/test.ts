@@ -1,4 +1,4 @@
-import { TlgImage } from '../index';
+import { TlgSds } from '../index';
 
 window.addEventListener('load', () => {
     const fileInput = <HTMLInputElement>document.getElementById('tlgFile');
@@ -17,7 +17,7 @@ window.addEventListener('load', () => {
         fileReader.addEventListener('load', () => {
             if(!(fileReader.result instanceof ArrayBuffer)) return;
 
-            const image = new TlgImage(fileReader.result);
+            const image = new TlgSds(fileReader.result);
             output.textContent = image.toString();
         });
         fileReader.readAsArrayBuffer(file);
