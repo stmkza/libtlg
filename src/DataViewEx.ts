@@ -4,6 +4,9 @@ declare global {
     interface DataView {
         readString(startPos: number, length: number): string;
 
+        setSeekPointer(pos: number): void;
+        skip(length: number): void;
+
         seekReadString(length: number): string;
 
         seekReadUint8(): number;
@@ -14,6 +17,16 @@ declare global {
         seekReadInt32(): number;
     }
 }
+
+DataView.prototype.setSeekPointer = function(pos: number) {
+    this.seekPointer = pos;
+}
+
+DataView.prototype.skip = function(length: number) {
+    if (!this.seekPointer) this.seekPointer = 0;
+    this.seekPointer += length;
+}
+
 
 DataView.prototype.readString = function (startPos: number, length: number): string {
     return new TextDecoder("utf-8").decode(new Uint8Array(this.buffer, startPos, length));

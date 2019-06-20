@@ -8,6 +8,7 @@ export class TlgSds {
     public magicByte?: string;
     public rawDataSize?: number;
     public rawImage?: TlgImage;
+    // ToDo: メタチャンクを実装する
 
     constructor(file: ArrayBuffer) {
         this.file = file;
