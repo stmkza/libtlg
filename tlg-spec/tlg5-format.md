@@ -27,4 +27,5 @@
         (u8)        Compress flag
                         #00 : Compressed
                         #01 : Not compressed
+        (i32LE)     Block content size
 ```
