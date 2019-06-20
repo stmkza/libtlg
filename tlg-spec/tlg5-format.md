@@ -24,5 +24,7 @@
 
 圧縮された画像データ
     圧縮ブロック
-        
+        (u8)        Compress flag
+                        #00 : Compressed
+                        #01 : Not compressed
 ```
