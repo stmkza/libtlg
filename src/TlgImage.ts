@@ -10,6 +10,7 @@ export class TlgImage {
 
     public magicByte?: string;
     public tlgVersion?: TlgVersion;
+    public colorDepth?: TlgColorDepth;
 
     constructor(image: ArrayBuffer) {
         this.image = image;
@@ -27,6 +28,13 @@ export class TlgImage {
             this.tlgVersion = 'TLG6.0';
         } else {
             throw new Error('Unsupported format version.');
+        }
+
+        // 色深度を読む
+        const colorDepth = this.view.seekReadUint8();
+        if (!(colorDepth === 1 || colorDepth === 3 || colorDepth === 4)) {
+            // ToDo: もっときれいな型のチェックにする
+            throw new Error('Unsupported color depth.');
         }
     }
 }
