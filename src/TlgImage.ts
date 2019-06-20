@@ -7,6 +7,9 @@ export class TlgImage {
     protected image: ArrayBuffer;
     protected view: DataView;
 
+    public magicByte?: string;
+    public tlgVersion?: TlgVersion;
+
     constructor(image: ArrayBuffer) {
         this.image = image;
         this.view = new DataView(image);
@@ -15,6 +18,14 @@ export class TlgImage {
     }
 
     parse() {
-
+        // マジックバイトを確認
+        this.magicByte = this.view.seekReadString(11);
+        if(this.magicByte === 'TLG5.0\x00raw\x1a') {
+            this.tlgVersion = 'TLG5.0';
+        } else if(this.magicByte === 'TLG6.0\x00raw\x1a') {
+            this.tlgVersion = 'TLG6.0';
+        } else {
+            throw new Error('Unsupported format version.');
+        }
     }
 }
