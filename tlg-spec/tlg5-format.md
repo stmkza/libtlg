@@ -15,11 +15,14 @@
     (i32LE)     Height
     (i32LE)     Block height (圧縮するときの縦方向の分割単位)
 
+// Block countの求め方
+// floor((Height - 1) / Block height) + 1
+
 圧縮ブロックサイズ [4*(Block count)]
     (i32LE)     Block size
     [...圧縮ブロックサイズの繰り返し...]
 
 圧縮された画像データ
     圧縮ブロック
-
+        
 ```
