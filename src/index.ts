@@ -1,0 +1,1 @@
+export {TlgImage} from './TlgImage';
