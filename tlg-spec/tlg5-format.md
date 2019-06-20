@@ -7,10 +7,9 @@
     (u8)        #1a
 
 画像情報
-    (u8)        Color depth
-                    #01 :  8bit <<TLG変換ツールにはコードがあるのに、吉里吉里では使用できない>>
-                    #03 : 24bit
-                    #04 : 32bit
+    (u8)        Color count
+                    #03 : RGB
+                    #04 : RGBA
     (i32LE)     Width
     (i32LE)     Height
     (i32LE)     Block height (圧縮するときの縦方向の分割単位)

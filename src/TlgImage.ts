@@ -2,7 +2,6 @@ import { parse } from "path";
 import './DataViewEx';
 
 export type TlgVersion = 'TLG5.0' | 'TLG6.0';
-export type TlgColorDepth = 3 | 4;
 export type TlgColorCount = 1 | 3 | 4;
 
 export class TlgImage {
@@ -11,7 +10,6 @@ export class TlgImage {
 
     public magicByte?: string;
     public tlgVersion?: TlgVersion;
-    public colorDepth?: TlgColorDepth;
     public colorCount?: TlgColorCount;
     public width?: number;
     public height?: number;
@@ -38,13 +36,13 @@ export class TlgImage {
     }
 
     parseTlg5() {
-        // 色深度を読む
-        const colorDepth = this.view.seekReadUint8();
-        if (!(colorDepth === 3 || colorDepth === 4)) {
+        // 色数を読む
+        const colorCount = this.view.seekReadUint8();
+        if (!(colorCount === 3 || colorCount === 4)) {
             // ToDo: もっときれいな型のチェックにする
-            throw new Error('Unsupported color depth.');
+            throw new Error('Unsupported color count.');
         }
-        this.colorDepth = colorDepth;
+        this.colorCount = colorCount;
 
         // 画像の幅・高さを読む
         this.width = this.view.seekReadInt32();
